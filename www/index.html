@@ -38,20 +38,20 @@
     <div class="bar bar-subheader item-input-inset bar-light">
         <label class="item-input-wrapper">
             <i class="icon ion-search placeholder-icon"></i>
-            <input type="search" placeholder="search">
+            <input type="search" ng-model="query" placeholder="search">
         </label>
     </div>
     
     
     <ion-content ng-controller="ListController" class="has-subheader">
-        
         <ion-list>
-            <ion-item ng-repeat='item in artists'
+            <ion-item 
+              ng-repeat='item in artists | filter: query '
                class="item-thumbnail-left item-text-wrap">
-                <img src="http://placehold.it/100x100" alt="">
-                <h2>name</h2>
-                <h3>reknown</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Earum voluptate eaque, commodi maxime, temporibus natus. Impedit facilis ea expedita cum maxime quia, voluptate esse deleniti unde. Earum, quaerat quos mollitia!</p>
+                <img src="img/{{item.shortname}}_tn.jpg" alt="{{item.name}} photo">
+                <h2>{{item.name}}</h2>
+                <h3>{{item.reknown}}</h3>
+                <p>{{item.bio}}</p>
             </ion-item>
         </ion-list>
         
