@@ -60,15 +60,58 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
         }
     })
     
+    .state('tabs.calendar', {
+        url: '/calendar',
+        views: {
+            'calendar-tab' : {
+                templateUrl: 'templates/calendar.html', 
+                controller: 'CalendarController'
+            }
+        }
+    })
+    
     
     $urlRouterProvider.otherwise('/tab/home');
 })
 
 
+
+
+
+
+.controller('CalendarController', ['$scope', '$http', '$state', function ($scope, $http, $state)
+        {
+            $http.get('js/data.json').success(function (data) {
+                $scope.calendar = data.calendar;
+                
+                $scope.onItemDelete = function(dayIndex, item){
+                    $scope.calendar[dayIndex].schedule.splice($scope.calendar[dayIndex].schedule.indexOf(item), 1);
+                }
+                
+                $scope.doRefresh = function() {
+                                $http.get('js/data.json').success(function (data) {
+                                  $scope.calendar = data.calendar;
+                                    $scope.$broadcast('scroll.refreshComplete');
+                                });
+                }
+                
+                $scope.toggleStar = function(item) {
+                    item.star = !item.star;
+                }
+                
+                
+
+            });
+}])
+
+
+
+
+
 .controller('ListController', ['$scope', '$http', '$state', function ($scope, $http, $state)
         {
             $http.get('js/data.json').success(function (data) {
-                $scope.artists = data;
+                $scope.artists = data.artists;
                 $scope.whichartist=$state.params.aId;
                 $scope.data = { showDelete: false, showReorder: false};
                 

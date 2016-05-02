@@ -14,6 +14,50 @@
     width: 50%;
     margin: 0 auto;
     text-align: center;
-    max-width: 200px;
+    max-width: 300px;
     margin-top: 20px;
+}
+
+body {
+    cursor: url('http://ionicframework.com/img/finger.png')
+}
+
+.tagline {
+    font-size: 1.4 rem;
+    
+}
+
+.branding p{
+    margin-top: 10px;
+    font-size: 1rem;
+}
+
+.item-divider{
+    background-color: #EEE8D6;
+}
+
+.bar-positive, .tabs-positive>.tabs {
+    background-color: #417D9A !important;
+    border-color: #417D9A;
+}
+
+.item-thumbnail-left img {
+    border-radius: 10px;
+}
+
+.item h3 {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: 417D9A;
+}
+
+.dayhighlight {
+    background-color: #9EC6DE;
+    border-top: 20px solid #417D9A;
+}
+
+.dayhighlight h2 {
+    color: #417D9A;
+    font-size: 2rem;
+    font-weight: 200;
 }
