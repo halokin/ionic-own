@@ -30,6 +30,16 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
         abstract: true,
         templateUrl: 'templates/tabs.html'
     })
+    
+    .state('tabs.home', {
+        url: '/home',
+        views: {
+            'home-tab' : {
+                templateUrl: 'templates/home.html'
+            }
+        }
+    })
+    
     .state('tabs.list', {
         url: '/list',
         views: {
@@ -39,7 +49,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
             }
         }
     })
-    $urlRouterProvider.otherwise('/tab/list');
+    $urlRouterProvider.otherwise('/tab/home');
 })
 
 
