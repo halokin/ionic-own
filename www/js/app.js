@@ -32,6 +32,10 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
                     $scope.artists.splice($scope.artists.indexOf(item), 1);
                 }
                 
+                $scope.toggleStar = function(item) {
+                    item.star = !item.star;
+                }
+                
                 
                 $scope.moveItem = function(item, fromIndex, toIndex){
                     $scope.artists.splice(fromIndex, 1);
